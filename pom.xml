@@ -17,6 +17,7 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring.version>5.3.31</spring.version>
+        <slf4j.version>1.7.25</slf4j.version>
     </properties>
 
     <dependencies>
@@ -50,6 +51,11 @@
             <artifactId>javax.servlet-api</artifactId>
             <version>4.0.1</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${slf4j.version}</version>
         </dependency>
     </dependencies>
 
