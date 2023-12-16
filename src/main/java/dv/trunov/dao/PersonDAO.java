@@ -1,6 +1,7 @@
 package dv.trunov.dao;
 
 import dv.trunov.models.Person;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.sql.Connection;
@@ -14,9 +15,14 @@ import java.util.List;
 @Component
 public class PersonDAO {
 
-    private static final String URL = "jdbc:postgresql://localhost:5432/spring_crud";
-    private static final String USERNAME = "postgres";
-    private static final String PASSWORD = "postgres";
+    @Value("${database.url}")
+    private String URL;
+
+    @Value("${database.user}")
+    private String username;
+
+    @Value("${database.password}")
+    private String password;
 
     static {
         try {
@@ -101,7 +107,7 @@ public class PersonDAO {
     }
 
     private Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(URL, USERNAME, PASSWORD);
+        return DriverManager.getConnection(URL, username, password);
     }
 
     private PreparedStatement getSelectAllStatement(Connection connection) throws SQLException {
